@@ -1,0 +1,47 @@
+{
+  "name": "env-sentinel",
+  "version": "1.0.0",
+  "description": "Zero-leak environment variable & schema drift auditor with static code analysis and auto-fixing.",
+  "type": "module",
+  "main": "src/auditor.js",
+  "types": "index.d.ts",
+  "bin": {
+    "env-sentinel": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "demo": "node demo/run-demo.js",
+    "start": "node bin/cli.js"
+  },
+  "keywords": [
+    "dotenv",
+    "env",
+    "environment-variables",
+    "static-analysis",
+    "linter",
+    "ci",
+    "security",
+    "config",
+    "cli"
+  ],
+  "author": "dani-s-h007 <shanusathar@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dani-s-h007/env-sentinel.git"
+  },
+  "homepage": "https://github.com/dani-s-h007/env-sentinel#readme",
+  "bugs": {
+    "url": "https://github.com/dani-s-h007/env-sentinel/issues"
+  }
+}
