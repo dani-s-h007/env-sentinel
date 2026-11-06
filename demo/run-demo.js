@@ -6,7 +6,7 @@
 import { extractEnvVarsFromContent } from '../src/scanner.js';
 import { generateSafeDummyValue, buildExampleFileContent } from '../src/autofix.js';
 
-console.log('\n🚀 Starting env-sentinel Interactive Demo...\n');
+console.log('\n=== [DEMO] Starting env-sentinel ===\n');
 
 const sampleCode = `
 import express from 'express';
@@ -32,5 +32,5 @@ console.log('------------------------------------------------------------');
 const exampleContent = buildExampleFileContent(Array.from(extracted.keys()));
 console.log(exampleContent);
 console.log('------------------------------------------------------------');
-console.log('🎉 Demo completed successfully!\n');
+console.log('[SUCCESS] Demo completed successfully.\n');
 

@@ -1,4 +1,4 @@
-# env-sentinel 🔐
+# env-sentinel
 
 [![CI](https://github.com/dani-s-h007/env-sentinel/actions/workflows/ci.yml/badge.svg)](https://github.com/dani-s-h007/env-sentinel/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -11,7 +11,7 @@ Missing environment variables in production are one of the most common causes of
 
 ---
 
-## ✨ Features
+## Features
 
 - **Multi-Language Static Scanner**: Detects env variables in JS, TypeScript, JSX, TSX (`process.env.X`, `import.meta.env.X`), Python (`os.environ[...]`, `os.getenv(...)`), and Go (`os.Getenv(...)`).
 - **Deep Drift Detection**:
@@ -24,7 +24,7 @@ Missing environment variables in production are one of the most common causes of
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ```bash
 # Run instantly with npx
@@ -36,7 +36,7 @@ npm install -g env-sentinel
 
 ---
 
-## 🛠️ CLI Usage
+## CLI Usage
 
 ### Basic Audit
 ```bash
@@ -63,7 +63,7 @@ env-sentinel --json > env-report.json
 
 ---
 
-## 💻 Programmatic TypeScript API
+## Programmatic TypeScript API
 
 ```typescript
 import { auditEnvironment, buildExampleFileContent } from 'env-sentinel';
@@ -83,7 +83,7 @@ if (report.hasIssues) {
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ```bash
 npm test
@@ -91,7 +91,7 @@ npm test
 
 ---
 
-## 📄 License
+## License
 
 MIT © Essentials Toolkit Authors
 

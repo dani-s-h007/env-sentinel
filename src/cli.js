@@ -59,7 +59,7 @@ export async function runCli(argv = process.argv.slice(2)) {
     const allNeeded = [...report.codeVars, ...report.envVars];
     const newExampleContent = buildExampleFileContent(allNeeded, existingVars);
     writeFileSync(examplePath, newExampleContent, 'utf8');
-    console.log(`✓ Updated "${values.example}" with all required keys (zero secrets leaked).`);
+    console.log(`[OK] Updated "${values.example}" with all required keys (zero secrets leaked).`);
     return 0;
   }
 
@@ -79,7 +79,7 @@ export async function runCli(argv = process.argv.slice(2)) {
 }
 
 function printHumanReport(report, values) {
-  console.log('\n🔍 env-sentinel Audit Report');
+  console.log('\n--- env-sentinel Audit Report ---');
   console.log('============================================================');
   console.log(`Variables referenced in code:  ${report.stats.totalCodeVariables}`);
   console.log(`Variables defined in ${values.env}:       ${report.stats.totalEnvVariables}`);
@@ -89,17 +89,17 @@ function printHumanReport(report, values) {
 
   if (report.missingInExample.length > 0) {
     issueCount += report.missingInExample.length;
-    console.log(`❌ Missing from "${values.example}" (${report.missingInExample.length}):`);
+    console.log(`[ERROR] Missing from "${values.example}" (${report.missingInExample.length}):`);
     for (const item of report.missingInExample) {
       const loc = item.occurrences[0] ? ` (used in ${item.occurrences[0].file}:${item.occurrences[0].line})` : '';
       console.log(`   - ${item.key}${loc}`);
     }
-    console.log('   👉 Tip: Run `env-sentinel --fix-example` to automatically add safe placeholders.\n');
+    console.log('   -> Tip: Run `env-sentinel --fix-example` to automatically add safe placeholders.\n');
   }
 
   if (report.missingInEnv.length > 0) {
     issueCount += report.missingInEnv.length;
-    console.log(`⚠️  Referenced in code but missing from "${values.env}" (${report.missingInEnv.length}):`);
+    console.log(`[WARN]  Referenced in code but missing from "${values.env}" (${report.missingInEnv.length}):`);
     for (const item of report.missingInEnv) {
       console.log(`   - ${item.key}`);
     }
@@ -115,7 +115,7 @@ function printHumanReport(report, values) {
   }
 
   if (issueCount === 0) {
-    console.log('✅ Environment schema is fully in sync! No missing variables detected.');
+    console.log('[OK] Environment schema is fully in sync! No missing variables detected.');
   }
   console.log('============================================================\n');
 }
